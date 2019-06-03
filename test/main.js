@@ -129,19 +129,19 @@ for (var i = 0; i < sasses.length; i++) {
     sass: sasses[i]
   });
 
-  // setupTest('sass fails to compile when variables contain illegal characters and escapeIllegalCharacters === false', {
-  //   src: path.join(__dirname, './fixtures/escape.json'),
-  //   escapeIllegalCharacters: false,
-  //   sassShouldCompile: false,
-  //   sass: sasses[i]
-  // });
+  setupTest('sass fails to compile when variables contain illegal characters and escapeIllegalCharacters === false', {
+    src: path.join(__dirname, './fixtures/escape.json'),
+    escapeIllegalCharacters: false,
+    sassShouldCompile: false,
+    sass: sasses[i]
+  });
 
-  // setupTest('malformed json breaks sass compilation (as it relies on the variables) but not jsonSass when ignoreJsonErrors === true', {
-  //   src: path.join(__dirname, './fixtures/malformed.json'),
-  //   sassShouldCompile: false,
-  //   ignoreJsonErrors: true,
-  //   sass: sasses[i]
-  // });
+  setupTest('malformed json breaks sass compilation (as it relies on the variables) but not jsonSass when ignoreJsonErrors === true', {
+    src: path.join(__dirname, './fixtures/malformed.json'),
+    sassShouldCompile: false,
+    ignoreJsonErrors: true,
+    sass: sasses[i]
+  });
 
   setupTest('malformed json breaks jsonSass when ignoreJsonErrors is not given', {
     src: path.join(__dirname, './fixtures/malformed.json'),
