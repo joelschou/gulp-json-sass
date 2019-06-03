@@ -1,4 +1,4 @@
-var sass = require('gulp-ruby-sass'),
+var sass = require('gulp-sass'),
     jsonSass = require('../'),
     gutil = require('gulp-util'),
     path = require('path')
@@ -58,6 +58,7 @@ function runTests(t, opt) {
     .pipe(sass())
       .on('error', function sassCompilationFail() {
         failedSassCompilation = true;
+        t.end();
       })
       .on('end', function sassCompilationEnd() {
         if (opt.sassShouldCompile && !failedSassCompilation) {
@@ -149,4 +150,3 @@ for (var i = 0; i < sasses.length; i++) {
   });
 
 }
-
