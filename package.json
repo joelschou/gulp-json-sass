@@ -1,10 +1,11 @@
 {
   "name": "gulp-json-sass",
   "description": "Gulp plugin for turning JSON files into files of scss/sass variable definitions.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "test": "npm run coverage && npm run rm",
-    "coverage": "istanbul cover test/*.js",
+    "coverage": "nyc npm run tape",
+    "tape": "tape 'test/*.js'",
     "rm": "rimraf ./coverage"
   },
   "repository": {
@@ -25,15 +26,16 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.8.6",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.3.4",
-    "gulp-ruby-sass": "^0.7.1",
-    "tape": "^2.14.0",
-    "through2": "^0.5.1"
+    "gulp-sass": "^4.0.2",
+    "nyc": "^14.1.1",
+    "tape": "^4.10.2",
+    "through2": "^3.0.1"
   },
   "dependencies": {
-    "chalk": "^0.5.1",
-    "gulp-match": "^0.2.0",
+    "chalk": "^2.4.2",
+    "gulp-match": "^1.0.3",
     "gulp-util": "^3.0.0",
     "through": "^2.3.4"
   }
