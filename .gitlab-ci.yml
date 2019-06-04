@@ -1,0 +1,21 @@
+image:  containers.biw-services.com/cpd/docker-images/gitlab-builder:latest
+
+include:
+  - https://cpd.biw-pages.com/ci-includes/common/stages.yml
+  - https://cpd.biw-pages.com/ci-includes/common/variables.yml
+  - https://cpd.biw-pages.com/ci-includes/security/sast.yml
+  - https://cpd.biw-pages.com/ci-includes/security/dependencies.yml
+
+test:
+  stage: test
+  script:
+    - yarn install
+    - yarn test
+
+publish:
+  stage: publish
+  only:
+    - tags@schou/gulp-json-sass
+  script:
+    - yarn install
+    - /biw-cpd-ci-scripts/publish-to-npm/1/publish-to-npm.sh
