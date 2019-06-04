@@ -15,7 +15,7 @@ test:
 publish:
   stage: publish
   only:
-    - tags@schou/gulp-json-sass
+    - tags@cpd/gulp-json-sass
   script:
     - yarn install
     - /biw-cpd-ci-scripts/publish-to-npm/1/publish-to-npm.sh
